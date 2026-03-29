@@ -1,16 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-import {APP_NAME} from './constants';
+import Header from './components/Header';
+import WeatherCard from './components/WeatherCard';
+import SearchBar from './components/SearchBar';
+import SlidingForecast from './components/SlidingForecasts';
+import { useState } from 'react';
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const [units, setUnits] = useState("celsius");
+
   return (
-    <div className="App">
-      <h1>{APP_NAME}</h1>
-      <GetForecastBubble Unit="Fahrenheit" Celsius={25} />
+    <div className={theme === "light" ? "app light-theme" : "app dark-theme"}>
+      <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} />
+      <SearchBar />
+      <WeatherCard size={true} />
+      <SlidingForecast title="Hourly Forecast" />
+      <SlidingForecast title="Daily Forecast" />
     </div>
   );
 }
 
+
+/*
 const toCelsius = (fahrenheit) => {
   return (fahrenheit - 32) * 5 / 9;
 }
@@ -38,5 +49,7 @@ const GetForecastBubble = (props) => {
     </div>
   );
 }
+
+*/
 
 export default App;
