@@ -1,8 +1,8 @@
-function SlidingForecast({ title, data, units }) {
+function SlidingForecast({ title, data, units, theme }) {
     if (!data || data.length === 0) return null;
 
     return (
-        <section className="sliding-forecast">
+        <section className={theme === "light" ? "app sliding-forecast light-forecast" : "app sliding-forecast dark-forecast"}>
             <h2>{title}</h2>
 
             <div className="card-container">
@@ -25,7 +25,7 @@ function SlidingForecast({ title, data, units }) {
                         : item.day.condition.text;
 
                     return (
-                        <div key={index} className="card">
+                        <div key={index} className={theme === "light" ? "app card light-card" : "app card dark-card"}>
                             <img src={icon} alt={conditionText} />
                             <h3>{label}</h3>
                             <p>{Math.round(temp)}°{units === "celsius" ? "C" : "F"}</p>

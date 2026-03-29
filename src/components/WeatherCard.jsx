@@ -1,4 +1,4 @@
-function WeatherCard({ size, weatherData, units }) {
+function WeatherCard({ size, weatherData, units, theme }) {
     if (!weatherData) return null;
 
     const current = weatherData.current;
@@ -9,7 +9,7 @@ function WeatherCard({ size, weatherData, units }) {
     const unitSymbol = units === "celsius" ? "°C" : "°F";
 
     return (
-        <div className={size ? "card large" : "card"}>
+        <div className={`card ${size ? "large" : ""} ${theme}-card`}>
             <img src={current.condition.icon} alt={current.condition.text} />
 
             <h2>{location.name}</h2>

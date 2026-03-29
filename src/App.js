@@ -67,16 +67,18 @@ function App() {
 
       {weatherData && (
         <>
-        <WeatherCard size={true} weatherData={weatherData} units={units} />
+        <WeatherCard size={true} weatherData={weatherData} units={units} theme={theme} />
         <SlidingForecast 
         title="Hourly Forecast"
         data = {weatherData.forecast.forecastday[0].hour}
         units ={units}
+        theme = {theme}
         />
         <SlidingForecast
         title="Daily Forecast"
         data = {weatherData.forecast.forecastday}
         units = {units}  
+        theme = {theme}
           />
         </>
       )}

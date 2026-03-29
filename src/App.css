@@ -17,7 +17,6 @@ h1,h2,h3,p {
 }
 
 .header {
-  border-bottom: 1px solid #000000;
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
@@ -30,7 +29,6 @@ h1,h2,h3,p {
 .header-dropdowns select {
   margin-left: 0.5rem;
   padding: 0.5rem;
-  background-color: transparent;
   border: 1px solid #000000;
   border-radius: 5%;
 }
@@ -68,12 +66,61 @@ h1,h2,h3,p {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  margin: 1rem 0;
-  background-color: thistle;
+  margin: 1rem;
+  border-radius: 5px;
+  padding:5px;
 }
 
 .card-container {
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
+}
+
+/* Light theme */
+.light-theme {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.dark-theme {
+  background-color: #0B0B0B;
+  color: #FFFFFF;
+}
+
+.light-header {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+}
+
+/* Dark theme */
+.dark-header {
+  background-color: #0B0B0B;
+  color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.dark-forecast {
+  background-color: #030844;
+  color: #DFF0F5;
+  border: 2px solid #0A35B9;
+}
+
+.light-forecast {
+  background-color: thistle;
+  color: #0B0B0B;
+  border-color: #0A35B9;
+}
+
+.dark-card {
+  background-color: #101055;
+  color: #DFF0F5;
+  border: 1px solid #0A35B9;
+}
+
+.light-card {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  color: #0b0b0b;
 }
