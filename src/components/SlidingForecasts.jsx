@@ -1,39 +1,41 @@
-import { useRef } from "react";
-import WeatherCard from "./WeatherCard";
-
-function SlidingTemperatures({ title }) {
-    const containerRef = useRef();
-
-    /* Scrolls container 200px to the right */
-    function scrollLeft() {
-        containerRef.current.scrollBy({ left: -200, behavior: "smooth" });
-    }
-    
-    /* Scrolls container 200px to the left */
-    function scrollRight() {
-        containerRef.current.scrollBy({ left: 200, behavior: "smooth" });
-    }
+function SlidingForecast({ title, data, units }) {
+    if (!data || data.length === 0) return null;
 
     return (
-        <section className = "sliding-forecast">
+        <section className="sliding-forecast">
             <h2>{title}</h2>
 
-            <div>
-                <button onClick={scrollLeft}>Left</button>
+            <div className="card-container">
+                {data.map((item, index) => {
+                    const isHourly = item.time !== undefined;
+                    const temp = isHourly
+                        ? (units === "celsius" ? item.temp_c : item.temp_f)
+                        : (units === "celsius" ? item.day.avgtemp_c : item.day.avgtemp_f);
 
-                <div className="card-container" ref={containerRef}>
-                    <WeatherCard size={false} />
-                    <WeatherCard />
-                    <WeatherCard />
-                    <WeatherCard />
-                    <WeatherCard />
-                </div>
+                    const label = isHourly
+                        ? item.time.split(" ")[1]
+                        : item.date;
 
-                <button onClick={scrollRight}>Right</button>
+                    const icon = isHourly
+                        ? item.condition.icon
+                        : item.day.condition.icon;
 
+                    const conditionText = isHourly
+                        ? item.condition.text
+                        : item.day.condition.text;
+
+                    return (
+                        <div key={index} className="card">
+                            <img src={icon} alt={conditionText} />
+                            <h3>{label}</h3>
+                            <p>{Math.round(temp)}°{units === "celsius" ? "C" : "F"}</p>
+                            <p>{conditionText}</p>
+                        </div>
+                    );
+                })}
             </div>
         </section>
     );
 }
 
-export default SlidingTemperatures;
+export default SlidingForecast;

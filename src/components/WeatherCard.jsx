@@ -1,20 +1,28 @@
-function WeatherCard( {size}) {
+function WeatherCard({ size, weatherData, units }) {
+    if (!weatherData) return null;
+
+    const current = weatherData.current;
+    const location = weatherData.location;
+
+    const temperature = units === "celsius" ? current.temp_c : current.temp_f;
+    const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
+    const unitSymbol = units === "celsius" ? "°C" : "°F";
+
     return (
-        <div className= {size ? "card large" : "card"}>
-            <img src="./Assets/Icons/Cloud.svg" alt="Cloudy" />
-        
-            <h2>City Name</h2>
-            <p>Temperature: 25°C</p>
+        <div className={size ? "card large" : "card"}>
+            <img src={current.condition.icon} alt={current.condition.text} />
+
+            <h2>{location.name}</h2>
+            <p>Temperature: {Math.round(temperature)}{unitSymbol}</p>
 
             {size && (
                 <div className="additional-info">
-                    <p>Feels Like: 27°C</p>
-                    <p>Cloudy</p>
-                    <p>Road Conditions: Moderate</p>
-                    <p>Warning: None</p>
+                    <p>Feels Like: {Math.round(feelsLike)}{unitSymbol}</p>
+                    <p>{current.condition.text}</p>
+                    <p>Wind Speed: {current.wind_kph} kph</p>
+                    <p>Humidity: {current.humidity}%</p>
                 </div>
-            )}         
-
+            )}
         </div>
     );
 }

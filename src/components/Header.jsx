@@ -1,7 +1,7 @@
 function Header( { theme, setTheme, units, setUnits }) {
     return (
         <header className="header">
-            <h1>Weather App</h1>
+            <h1>Weather App Group 51</h1>
         
             <div className = "header-dropdowns">
                 <select value = {theme} onChange = { (e) => setTheme(e.target.value) }>
