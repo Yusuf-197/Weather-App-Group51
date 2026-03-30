@@ -18,7 +18,7 @@ function WeatherCard({ size, weatherData, units, theme }) {
             {size && (
                 <div className="additional-info">
                     <p>Feels Like: {Math.round(feelsLike)}{unitSymbol}</p>
-                    <p>{current.condition.text}</p>
+                    <p>Conditions: {current.condition.text}</p>
                     <p>Wind Speed: {current.wind_kph} kph</p>
                     <p>Humidity: {current.humidity}%</p>
                 </div>

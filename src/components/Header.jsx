@@ -2,8 +2,8 @@ import { useEffect } from "react";
 
 function Header( { theme, setTheme, units, setUnits }) {
     useEffect(() => {
-  document.body.style.backgroundColor =
-    theme === "light" ? "#ffffff" : "#0b0b0b";
+  document.body.style.background =
+    theme === "light" ? "linear-gradient(to bottom, #48cae4, #005989)" : "#0b0b0b";
 }, [theme]);
     return (
         <header className={theme === "light" ? "app header light-header" : "app header dark-header"}>

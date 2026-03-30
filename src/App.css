@@ -1,14 +1,13 @@
 body {
+  min-height: 100vh; 
   margin: 0; 
   font-family: Arial; /* Set a default font and backups*/
-  background-color: #dcdcdc;
   text-align: center;
-  padding: 0.2rem; /* Padding for page */
+  font-size: 1rem;
 }
 
 h1,h2,h3,p {
   margin: 0.5rem 0; /* Margin for headings and paragraphs */
-  width: fit-content;
 }
 
 .app {
@@ -20,17 +19,16 @@ h1,h2,h3,p {
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
-
 .header-dropdowns select {
+  outline: none;
   margin-left: 0.5rem;
   padding: 0.5rem;
   border: 1px solid #000000;
-  border-radius: 5%;
+  border-radius: 10px;
 }
 
 .search-bar {
@@ -44,57 +42,129 @@ h1,h2,h3,p {
   padding: 0.5rem;
   width: 80%;
   border: 1px solid #000000;
-  border-radius: 2%;
+  border-radius: 10px;
 }
 
 .search-bar button {
   padding: 0.5rem 1rem;
-  border-radius: 2%;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-.card {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 5%;
+.card.large {
+  min-width: 40%;
+  border: 2px solid #00155b;
+  border-radius: 20px;
   padding: 1rem;
   margin: 0.5rem;
-  max-width: 15%;
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  min-width: 25%;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.card .additional-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sliding-forecast {
-  display: flex;
-  overflow-x: auto;
   scroll-behavior: smooth;
   margin: 1rem;
-  border-radius: 5px;
-  padding:5px;
+  border-radius: 20px;
+  padding: 1rem;
 }
 
 .card-container {
+  overflow-x: auto;
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
 }
 
 /* Light theme */
-.light-theme {
-  background-color: #FFFFFF;
+.app.light-theme {
   color: #000000;
 }
 
-.dark-theme {
+.light-header {
+  color: #000000;
+  border-bottom: 0.5px solid #000000;
+}
+
+.light-header .header-dropdowns select {
+  outline: none;
+  border: 1px solid #000000;
+  background-color: #ade8f4;
+  color: #000000;
+}
+
+.light-header .header-dropdowns select:hover {
+  box-shadow: 0 0 0 1px #0077b6;
+}
+
+.light-header .header-dropdowns select:focus {
+  box-shadow: 0 0 0 1px #0077b6;
+}
+
+.search-bar.light input {
+  outline: none;
+  color: #000000;
+  border: 1px solid #000000;
+  background-color: #ade8f4;
+}
+
+.search-bar.light input:focus {
+  box-shadow: 0 0 0 1px #0077b6;
+}
+
+.search-bar.light input:hover {
+  box-shadow: 0 0 0 1px #0077b6;
+}
+.search-bar.light button {
+  background-color: #ade8f4;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.search-bar.light button:hover {
+  box-shadow: 0 0 0 1px #0077b6;
+}
+
+.light-card {
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+.sliding-forecast.light-forecast {
+  border: 2px solid #00155b;
+  color: #000000;
+
+}
+
+/* Dark theme */
+.app.dark-theme {
   background-color: #0B0B0B;
   color: #FFFFFF;
 }
 
-.light-header {
-  background-color: #FFFFFF;
-  color: #000000;
-  border-bottom: 1px solid #000000;
-}
-
-/* Dark theme */
 .dark-header {
   background-color: #0B0B0B;
   color: #FFFFFF;
@@ -107,20 +177,64 @@ h1,h2,h3,p {
   border: 2px solid #0A35B9;
 }
 
-.light-forecast {
-  background-color: thistle;
-  color: #0B0B0B;
-  border-color: #0A35B9;
-}
-
 .dark-card {
   background-color: #101055;
   color: #DFF0F5;
   border: 1px solid #0A35B9;
 }
 
-.light-card {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  color: #0b0b0b;
+
+
+.CurrentWeather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+  }
+
+  .card.large {
+    min-width: 35%;
+  }
+
+  .card {
+    min-width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.5rem;
+  }
+
+  
+  .card.large {
+    min-width: 30%;
+  }
+
+  .card {
+    font-size: 0.6rem;
+    min-width: 20%;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .search-bar {
+    gap: 0.5rem;
+  }
 }

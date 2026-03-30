@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, theme}) {
     const [city, setCity] = useState("");
 
     const handleSubmit = (e) => {
@@ -11,7 +11,7 @@ function SearchBar({ onSearch }) {
     };
 
     return (
-        <form className="search-bar" onSubmit={handleSubmit}>
+        <form className={theme === "light" ? "search-bar light" : "search-bar dark"} onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder="Search for a city..."
