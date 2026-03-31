@@ -1,0 +1,83 @@
+.Main{
+    color : rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+.Main h2{
+    font-size : 1.5rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.Heading {
+    display : flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+.Heading h4{
+    margin: 0;
+    margin-top: 0.2rem;
+}
+
+.Heading p{
+    margin: 0;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.Temperature {
+    display : flex;
+    align-items: center;
+    gap : 1rem;
+}
+
+.Temperature img{
+    width: 20%;
+    height: auto;
+}
+
+.Temperature div{
+    display : flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 0;
+    margin: 0;
+}
+
+.Temperature div h1{
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.Temperature div p {
+    margin: 0;
+    margin-top: 0;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.Sideways{
+    display : flex;
+    gap : 1rem;
+    padding : 0.5rem;
+}
+
+.Sideways div{
+    text-align: left;
+    font-weight: bolder;
+}
+
+.Sideways div h1{
+    font-size : 1rem;
+    min-width: 10rem;
+    
+}
+
+.Sideways div p{
+    font-size : 0.8rem;
+    min-width: 10rem;
+}
