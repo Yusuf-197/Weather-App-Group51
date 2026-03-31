@@ -21,6 +21,31 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     const windSpeed = kmMiUnit === "km" ? current.wind_kph : current.wind_mph;
     const visibility = kmMiUnit === "km" ? current.vis_km : current.vis_miles;
 
+    const getWindStatus = () => {
+    if (current.wind_kph < 20) return "(Good)";
+    if (current.wind_kph < 40) return "(Average)";
+    if (current.wind_kph < 60) return "(Bad)";
+    return "Very Bad";
+    };
+
+    const getHumidityStatus = () => {
+    if (current.humidity < 31) return "(Dry)";
+    if (current.humidity < 61) return "(Comfy)";
+    if (current.humidity < 76) return "(Average)";
+    if (current.humidity < 85) return "(Bad)";
+    return "(Very Bad)";
+    };
+
+    const getVisibilityStatus = () => {
+    if (current.vis_km < 4) return "(Bad)";
+    if (current.vis_km < 10) return "(Average)";
+    return "(Clear)";
+    };
+
+    const windStatus = getWindStatus();
+    const humidityStatus = getHumidityStatus();
+    const visStatus = getVisibilityStatus();
+
     //TODO:
     // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
     // Subtle gradient for dark theme
@@ -39,7 +64,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
                 <div className = {styles.Heading}>
                     <h2>{location.name}, {location.country}</h2>
                     <h4>{parseTime(location.localtime)}</h4>
-                    <p>{location.localtime.split(" ")[1]}</p>
+                    <p>Last Updated: {location.localtime.split(" ")[1]}</p>
                 </div>
                 
                 <div className = {styles.Temperature}>
@@ -59,15 +84,15 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
                     </div>
                     <div>
                         <h1>Wind Speed</h1>
-                        <p>{windSpeed} {windspeedUnit}</p>
+                        <p>{windSpeed} {windspeedUnit} {windStatus}</p>
                     </div>
                     <div>
                         <h1>Humidity</h1>
-                        <p>{current.humidity}%</p>
+                        <p>{current.humidity}% {humidityStatus}</p>
                     </div>
                     <div>
                         <h1>Visibility</h1>
-                        <p>{visibility} {kmMiUnit}</p>
+                        <p>{visibility} {kmMiUnit} {visStatus}</p>
                     </div>
                 </div>
             </div>
