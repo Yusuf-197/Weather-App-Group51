@@ -49,7 +49,6 @@ function App() {
         return forecastHourTime >= currentTime-1;
       });
       setUpcomingHours(upcomingHours);
-
       
     } catch(err) {
       setError(err.message);
@@ -73,6 +72,8 @@ function App() {
     );
   }, [fetchWeather]); // Depends on fetchWeather, runs once on mount and if fetchWeather changes
   
+
+
   return (
     <div className={"main"}>
       <div className={theme === "light" ? "app light-theme" : "app dark-theme"}>

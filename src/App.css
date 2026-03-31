@@ -7,7 +7,7 @@ body {
 }
 
 h1,h2,h3,p {
-  margin: 0.5rem 0; /* Margin for headings and paragraphs */
+  margin: 0.5rem 0;
 }
 
 .app {
@@ -25,33 +25,31 @@ h1,h2,h3,p {
 
 .unit-buttons {
   display: flex;
-  gap: 12px;           /* space between buttons */
+  gap: 12px;   
 }
 
 .unit-toggle {
-  width: 150px;        /* fixed width */
-  height: 45px;        /* fixed height */
-  font-size: 16px;             /* readable text */
-  border-radius: 12px;         /* rounded corners */
+  padding: 0.5rem 1rem;       
+  font-size: 1rem;             
+  border-radius: 15px;         
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;   /* smooth hover */
 }
 
-/* Hover effect */
 .unit-toggle.light {
-  background: #ade8f4; /* bright blue */
+  background: #ade8f4;
   color: black;
 }
 
 .unit-toggle.light:hover {
-  background: #8ed6e8; /* slightly different hover shade */
+  background: #8ed6e8; 
   transform: scale(1.05);
 }
 
 /* Dark theme */
 .unit-toggle.dark {
-  background: #333333; /* dark gray / black background */
+  background: #333333;
   color: #ffffff;
 }
 
@@ -225,6 +223,10 @@ h1,h2,h3,p {
 @media (max-width: 1024px) {
   body {
     font-size: 0.9rem;
+  }
+
+  .card.large {
+    min-width: 30%;
   }
 
 }
