@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-
+import { parseTime } from "../utils"; 
 
 function SlidingForecast({ title, data, units, theme }) {
     const scrollRef = useRef(null);
@@ -56,7 +56,7 @@ function SlidingForecast({ title, data, units, theme }) {
 
                         const label = isHourly
                             ? item.time.split(" ")[1]
-                            : item.date;
+                            : parseTime(item.date);
 
                         const icon = isHourly
                             ? item.condition.icon

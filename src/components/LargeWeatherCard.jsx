@@ -1,13 +1,6 @@
 import Frame from "./Frame";
 import styles from "./LargeWeatherCard.module.css";
-
-// function for converting collected time into a nice format
-function parseTime(time) {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const date = new Date(time);
-    return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}`;
-}
+import { parseTime } from "../utils"; 
 
 function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     if (!weatherData) return null;
@@ -67,7 +60,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
                 <div className = {styles.Heading}>
                     <h2>{location.name}, {location.country}</h2>
                     <h4>{parseTime(location.localtime)}</h4>
-                    <p>Last Updated: {location.localtime.split(" ")[1]}</p>
+                    <p>{location.localtime.split(" ")[1]}</p>
                 </div>
                 
                 <div className = {styles.Temperature}>
