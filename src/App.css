@@ -28,12 +28,42 @@ h1,h2,h3,p {
   margin-bottom: 0.5rem;
 }
 
-.header-dropdowns select {
-  outline: none;
-  margin-left: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #000000;
-  border-radius: 10px;
+.unit-buttons {
+  display: flex;
+  gap: 12px;           /* space between buttons */
+}
+
+.unit-toggle {
+  width: 150px;        /* fixed width */
+  height: 45px;        /* fixed height */
+  font-size: 16px;             /* readable text */
+  border-radius: 12px;         /* rounded corners */
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.2s ease;   /* smooth hover */
+}
+
+/* Hover effect */
+.unit-toggle.light {
+  background: #ade8f4; /* bright blue */
+  color: black;
+}
+
+.unit-toggle.light:hover {
+  background: #8ed6e8; /* slightly different hover shade */
+  transform: scale(1.05);
+}
+
+/* Dark theme */
+.unit-toggle.dark {
+  background: #333333; /* dark gray / black background */
+  color: #ffffff;
+}
+
+.unit-toggle.dark:hover {
+  background: #444444; /* hover effect */
+  transform: scale(1.05);
 }
 
 .search-bar {
@@ -68,14 +98,13 @@ h1,h2,h3,p {
   margin: 0.5rem;
 }
 
-
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  min-width: 25%;
+  min-width: 15%;
   border: 1px solid #000000;
   border-radius: 20px;
   padding: 1rem;
@@ -170,7 +199,6 @@ h1,h2,h3,p {
 
 /* Dark theme */
 .app.dark-theme {
-  background-color: #0B0B0B;
   color: #FFFFFF;
 }
 

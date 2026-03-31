@@ -18,8 +18,6 @@ function WeatherCard({weatherData, units, theme}) {
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
 
-    console.log(current);
-
     //TODO:
     // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
     // Subtle gradient for dark theme
