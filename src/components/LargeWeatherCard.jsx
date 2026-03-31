@@ -18,7 +18,7 @@ function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
     const windSpeed = windSpeedUnit === "kph" ? current.wind_kph : current.wind_mph;
-
+    const visibility = windSpeedUnit === "kph" ? current.vis_km : current.vis_miles;
     //TODO:
     // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
     // Subtle gradient for dark theme
@@ -65,7 +65,7 @@ function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
                     </div>
                     <div>
                         <h1>Visibility</h1>
-                        <p>{current.vis_km} km</p>
+                        <p>{visibility} {windSpeedUnit}</p>
                     </div>
                 </div>
             </div>
