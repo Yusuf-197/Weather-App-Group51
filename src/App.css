@@ -15,11 +15,6 @@ h1,h2,h3,p {
   margin: auto; 
 }
 
-.main {
-  padding: 1rem;
-  padding-inline: 2rem;
-}
-
 .header {
   padding: 1rem;
   display: flex;
@@ -126,6 +121,14 @@ h1,h2,h3,p {
   padding: 1rem;
 }
 
+.sliding-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .card-container {
   overflow-x: auto;
   display: flex;
@@ -230,6 +233,10 @@ h1,h2,h3,p {
     font-size: 0.9rem;
   }
 
+   .unit-toggle {   
+    font-size: 0.7rem;                    
+  }
+
   .card.large {
     min-width: 30%;
   }
@@ -238,7 +245,11 @@ h1,h2,h3,p {
 
 @media (max-width: 768px) {
   body {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+   .unit-toggle {   
+    font-size: 0.6rem;                    
   }
 
   .card.large {
@@ -252,9 +263,12 @@ h1,h2,h3,p {
 
 @media (max-width: 480px) {
   body {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
 
+  .unit-toggle {   
+    font-size: 0.6rem;                    
+  }
   
   .card.large {
     min-width: 30%;
