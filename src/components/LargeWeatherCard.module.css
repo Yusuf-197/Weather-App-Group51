@@ -1,4 +1,5 @@
 .Main{
+    margin: 1rem;
     color : rgb(255, 255, 255);
     font-weight: bolder;
 }
@@ -74,7 +75,6 @@
 .Sideways div h1{
     font-size : 1rem;
     min-width: 10rem;
-    
 }
 
 .Sideways div p{

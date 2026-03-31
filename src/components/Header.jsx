@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function Header( { theme, setTheme, units, setUnits }) {
+function Header( { theme, setTheme, units, setUnits, windSpeedUnit, setWindSpeedUnit } ) {
     useEffect(() => {
   document.body.style.background =
     theme === "light" ? "linear-gradient(to bottom, #48cae4, #005989)" : "linear-gradient(to bottom, #000000, #838383)";
@@ -16,6 +16,9 @@ function Header( { theme, setTheme, units, setUnits }) {
                 
                 <button className={theme === "light" ? "unit-toggle light" : "unit-toggle dark"}  onClick={() => setUnits(prev => prev === "celsius" ? "fahrenheit" : "celsius")}>
                     {units === "celsius" ? "Fahrenheit (°F)" : "Celsius (°C)"}
+                </button>
+                <button className={theme === "light" ? "unit-toggle light" : "unit-toggle dark"}  onClick={() => setWindSpeedUnit(prev => prev === "kph" ? "mph" : "kph")}>
+                    {windSpeedUnit === "kph" ? "Miles per Hour (mph)" : "Kilometers per Hour (km/h)"}
                 </button>
             </div>
         </header>
