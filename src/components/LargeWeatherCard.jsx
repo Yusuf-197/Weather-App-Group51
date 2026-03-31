@@ -18,6 +18,8 @@ function WeatherCard({weatherData, units, theme}) {
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
 
+    console.log(current);
+
     //TODO:
     // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
     // Subtle gradient for dark theme
@@ -34,7 +36,7 @@ function WeatherCard({weatherData, units, theme}) {
         <Frame theme={theme}>
             <div className={styles.Main}>
                 <div className = {styles.Heading}>
-                    <h2>{location.name}</h2>
+                    <h2>{location.name}, {location.country}</h2>
                     <h4>{parseTime(location.localtime)}</h4>
                     <p>{location.localtime.split(" ")[1]}</p>
                 </div>
@@ -61,6 +63,10 @@ function WeatherCard({weatherData, units, theme}) {
                     <div>
                         <h1>Humidity</h1>
                         <p>{current.humidity}%</p>
+                    </div>
+                    <div>
+                        <h1>Visibility</h1>
+                        <p>{current.vis_km} km</p>
                     </div>
                 </div>
             </div>
