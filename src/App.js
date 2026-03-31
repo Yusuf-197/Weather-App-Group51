@@ -1,9 +1,11 @@
 import './App.css';
 import Header from './components/Header';
 import WeatherCard from './components/WeatherCard';
+import LargeWeatherCard from './components/LargeWeatherCard';
 import SearchBar from './components/SearchBar';
 import SlidingForecast from './components/SlidingForecasts';
-import { useState, useEffect, useCallback } from 'react';
+
+import { useState, useEffect, useCallback, useInsertionEffect } from 'react';
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -24,7 +26,9 @@ function App() {
     try {
       setLoading(true);
       setError("");
-
+      console.log("Fetching process")
+      console.log(process.env); // Log the entire process.env object to check if the API key is present
+      console.log("APIKEY IS:", API_KEY); // Log the API key to verify it's being read correctly
       const response = await fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=3&aqi=no&alerts=no`
       );
@@ -70,43 +74,42 @@ function App() {
   }, [fetchWeather]); // Depends on fetchWeather, runs once on mount and if fetchWeather changes
   
   return (
-    <div className={theme === "light" ? "app light-theme" : "app dark-theme"}>
-      <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} />
-      <SearchBar theme={theme} onSearch={fetchWeather} />
+    <div className={"main"}>
+      <div className={theme === "light" ? "app light-theme" : "app dark-theme"}>
+        <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} />
+        <SearchBar theme={theme} onSearch={fetchWeather} />
 
-      {loading && <p>Loading Weather...</p>}
-      {error && <p>{error}</p>}
+        {loading && <p>Loading Weather...</p>}
+        {error && <p>{error}</p>}
 
-      {weatherData && (
-        <>
-          {/*Current Weather */}  
-          <div className='CurrentWeather'>
-            <WeatherCard 
-              size={true} 
+        {weatherData && (
+          <>
+            {/*Current Weather */}  
+            <LargeWeatherCard 
               weatherData={weatherData} 
               units={units} 
               theme={theme} 
             />
-          </div>
 
-          {/* Hourly Forecast */} 
-          <SlidingForecast 
-            title="Hourly Forecast"
-            data = {upcomingHours}
-            units ={units}
-            theme = {theme}
-          />
+            {/* Hourly Forecast */} 
+            <SlidingForecast 
+              title="Hourly Forecast"
+              data = {upcomingHours}
+              units ={units}
+              theme = {theme}
+            />
 
-          {/* Daily Forecast */} 
-          <SlidingForecast
-            title="Daily Forecast"
-            data = {weatherData.forecast.forecastday}
-            units = {units}  
-            theme = {theme}
-          />
+            {/* Daily Forecast */} 
+            <SlidingForecast
+              title="Daily Forecast"
+              data = {weatherData.forecast.forecastday}
+              units = {units}  
+              theme = {theme}
+            />
 
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );  
 }
