@@ -1,6 +1,7 @@
 import Frame from "./Frame";
 import styles from "./LargeWeatherCard.module.css";
 
+// function for converting collected time into a nice format
 function parseTime(time) {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -14,6 +15,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     const current = weatherData.current;
     const location = weatherData.location;
 
+    // numbers and unit depend on unit toggles passed in 
     const temperature = units === "celsius" ? current.temp_c : current.temp_f;
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
@@ -21,6 +23,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     const windSpeed = kmMiUnit === "km" ? current.wind_kph : current.wind_mph;
     const visibility = kmMiUnit === "km" ? current.vis_km : current.vis_miles;
 
+    // get comment on wind
     const getWindStatus = () => {
     if (current.wind_kph < 20) return "(Good)";
     if (current.wind_kph < 40) return "(Average)";
@@ -28,6 +31,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     return "Very Bad";
     };
 
+    // get comment on humidity
     const getHumidityStatus = () => {
     if (current.humidity < 31) return "(Dry)";
     if (current.humidity < 61) return "(Comfy)";
@@ -36,6 +40,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     return "(Very Bad)";
     };
 
+    // get comment on visibility
     const getVisibilityStatus = () => {
     if (current.vis_km < 4) return "(Bad)";
     if (current.vis_km < 10) return "(Average)";
@@ -47,11 +52,9 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     const visStatus = getVisibilityStatus();
 
     //TODO:
-    // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
     // Subtle gradient for dark theme
     // General colour scheme for light and dark themes - look at App.css light + dark by separating the themes into different classes to-
         //- make it easier to change the colour scheme of the entire app by just changing the CSS for the themes in App.css
-    // add imperial units for speed (mph)
     // use svg icons as png icons look blurry on some screens, or use more high res png icons
     // add features specifically targetting couriers such as:
         //- next time it'll rain
@@ -94,6 +97,10 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
                         <h1>Visibility</h1>
                         <p>{visibility} {kmMiUnit} {visStatus}</p>
                     </div>
+                </div>
+
+                <div>
+                    <p>Last Updated: {current.last_updated.split(" ")[1]}</p>
                 </div>
             </div>
         </Frame>

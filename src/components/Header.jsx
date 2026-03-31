@@ -5,6 +5,7 @@ function Header( { theme, setTheme, units, setUnits, kmMiUnit, setKmMiUnit } ) {
   document.body.style.background =
     theme === "light" ? "linear-gradient(to bottom, #48cae4, #005989)" : "linear-gradient(to bottom, #000000, #838383)";
 }, [theme]);
+    // toggle buttons for units and theme
     return (
         <header className={theme === "light" ? "app header light-header" : "app header dark-header"}>
             <h1>Weather App Group 51</h1>

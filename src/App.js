@@ -7,11 +7,12 @@ import SlidingForecast from './components/SlidingForecasts';
 import { useState, useEffect, useCallback } from 'react';
 
 function App() {
+  // added states for toggle buttons
   const [theme, setTheme] = useState("light");
   const [units, setUnits] = useState("celsius");
   const [kmMiUnit, setKmMiUnit] = useState("km");
 
-  //added state for weather data, loading and errors
+  //added state for weather data, loading, errors and upcoming hours
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -46,10 +47,18 @@ function App() {
       const currentTime = new Date(data.location.localtime);
       const upcomingHours = data.forecast.forecastday[0].hour.filter(hour => {
         const forecastHourTime = new Date(hour.time);
-        return forecastHourTime >= currentTime-1;
+        return forecastHourTime >= currentTime;
       });
-      setUpcomingHours(upcomingHours);
-      
+      // if we are in the last 6 hours of the day, we will need more hours, so we grab 12 from tomorrow
+      let finalHours = [...upcomingHours];
+      if (upcomingHours.length < 6 && data.forecast.forecastday[1]) {
+        // Will need more hours from tomorrow if it exists
+        const tomorrowHours = data.forecast.forecastday[1].hour.slice(0, 12);
+        finalHours = [...upcomingHours, ...tomorrowHours];
+      }
+      setUpcomingHours(finalHours);
+      console.log(data);
+            
     } catch(err) {
       setError(err.message);
       setWeatherData(null);

@@ -3,6 +3,7 @@ import { useState } from "react";
 function SearchBar({ onSearch, theme}) {
     const [city, setCity] = useState("");
 
+    // get city
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!city.trim()) return;
