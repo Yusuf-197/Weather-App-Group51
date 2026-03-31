@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback } from 'react';
 function App() {
   const [theme, setTheme] = useState("light");
   const [units, setUnits] = useState("celsius");
-  const [windSpeedUnit, setWindSpeedUnit] = useState("kph");
+  const [kmMiUnit, setKmMiUnit] = useState("km");
 
   //added state for weather data, loading and errors
   const [weatherData, setWeatherData] = useState(null);
@@ -76,7 +76,7 @@ function App() {
   return (
     <div className={"main"}>
       <div className={theme === "light" ? "app light-theme" : "app dark-theme"}>
-        <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} windSpeedUnit={windSpeedUnit} setWindSpeedUnit={setWindSpeedUnit} />
+        <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} kmMiUnit={kmMiUnit} setKmMiUnit={setKmMiUnit} />
         <SearchBar theme={theme} onSearch={fetchWeather} />
 
         {loading && <p>Loading Weather...</p>}
@@ -88,7 +88,7 @@ function App() {
             <LargeWeatherCard 
               weatherData={weatherData} 
               units={units} 
-              windSpeedUnit={windSpeedUnit}
+              kmMiUnit={kmMiUnit}
               theme={theme} 
             />
 

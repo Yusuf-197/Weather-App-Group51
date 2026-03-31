@@ -84,3 +84,74 @@
     font-size : 0.8rem;
     min-width: 10rem;
 }
+
+
+@media (max-width: 768px) {
+    .Main{
+        margin: 0.5rem;
+    }
+
+    .Main h2{
+        font-size : 1.2rem;
+    }
+
+    .Heading h4{
+        font-size: 1rem;
+    }
+
+    .Heading p{
+        font-size: 0.7rem;
+    }
+
+    .Temperature img{
+        width: 30%;
+    }
+
+    .Temperature div h1{
+        font-size: 1.5rem;
+    }
+
+    .Temperature div p {
+        font-size: 0.7rem;
+    }
+
+    .Sideways {
+        flex-direction: column;
+        gap: 0.5rem;
+    }   
+}
+
+@media (max-width: 480px) {
+    .Main{
+        margin: 0.5rem;
+    }
+
+    .Main h2{
+        font-size : 1rem;
+    }
+
+    .Heading h4{
+        font-size: 0.8rem;
+    }
+
+    .Heading p{
+        font-size: 0.6rem;
+    }
+
+    .Temperature img{
+        width: 40%;
+    }
+
+    .Temperature div h1{
+        font-size: 1.2rem;
+    }
+
+    .Temperature div p {
+        font-size: 0.6rem;
+    }
+
+    .Sideways {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

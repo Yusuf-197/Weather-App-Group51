@@ -8,7 +8,7 @@ function parseTime(time) {
     return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}`;
 }
 
-function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
+function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     if (!weatherData) return null;
 
     const current = weatherData.current;
@@ -17,8 +17,10 @@ function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
     const temperature = units === "celsius" ? current.temp_c : current.temp_f;
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
-    const windSpeed = windSpeedUnit === "kph" ? current.wind_kph : current.wind_mph;
-    const visibility = windSpeedUnit === "kph" ? current.vis_km : current.vis_miles;
+    const windspeedUnit = kmMiUnit === "km" ? "kph" : "mph";
+    const windSpeed = kmMiUnit === "km" ? current.wind_kph : current.wind_mph;
+    const visibility = kmMiUnit === "km" ? current.vis_km : current.vis_miles;
+
     //TODO:
     // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
     // Subtle gradient for dark theme
@@ -57,7 +59,7 @@ function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
                     </div>
                     <div>
                         <h1>Wind Speed</h1>
-                        <p>{windSpeed} {windSpeedUnit}</p>
+                        <p>{windSpeed} {windspeedUnit}</p>
                     </div>
                     <div>
                         <h1>Humidity</h1>
@@ -65,7 +67,7 @@ function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
                     </div>
                     <div>
                         <h1>Visibility</h1>
-                        <p>{visibility} {windSpeedUnit}</p>
+                        <p>{visibility} {kmMiUnit}</p>
                     </div>
                 </div>
             </div>
