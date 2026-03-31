@@ -15,13 +15,8 @@ h1,h2,h3,p {
   margin: auto; 
 }
 
-.main {
-  padding: 1rem;
-  padding-inline: 2rem;
-}
-
 .header {
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +35,6 @@ h1,h2,h3,p {
   border-radius: 12px;         /* rounded corners */
   border: none;
   cursor: pointer;
-
   transition: all 0.2s ease;   /* smooth hover */
 }
 
@@ -192,7 +186,7 @@ h1,h2,h3,p {
 }
 
 .sliding-forecast.light-forecast {
-  border: 2px solid #00155b;
+  background: rgba(255, 255, 255, 0.1);
   color: #000000;
 
 }
@@ -219,8 +213,6 @@ h1,h2,h3,p {
   color: #DFF0F5;
   border: 1px solid #0A35B9;
 }
-
-
 
 .CurrentWeather {
   display: flex;

@@ -8,7 +8,7 @@ function parseTime(time) {
     return `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}`;
 }
 
-function WeatherCard({weatherData, units, theme}) {
+function WeatherCard({weatherData, units, windSpeedUnit, theme}) {
     if (!weatherData) return null;
 
     const current = weatherData.current;
@@ -17,6 +17,7 @@ function WeatherCard({weatherData, units, theme}) {
     const temperature = units === "celsius" ? current.temp_c : current.temp_f;
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
+    const windSpeed = windSpeedUnit === "kph" ? current.wind_kph : current.wind_mph;
 
     //TODO:
     // Turn theme and unit boxes into toggle buttons instead of dropdowns - make them look nicer and more intuitive
@@ -56,7 +57,7 @@ function WeatherCard({weatherData, units, theme}) {
                     </div>
                     <div>
                         <h1>Wind Speed</h1>
-                        <p>{current.wind_kph} kph</p>
+                        <p>{windSpeed} {windSpeedUnit}</p>
                     </div>
                     <div>
                         <h1>Humidity</h1>

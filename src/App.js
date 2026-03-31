@@ -1,15 +1,15 @@
 import './App.css';
 import Header from './components/Header';
-import WeatherCard from './components/WeatherCard';
 import LargeWeatherCard from './components/LargeWeatherCard';
 import SearchBar from './components/SearchBar';
 import SlidingForecast from './components/SlidingForecasts';
 
-import { useState, useEffect, useCallback, useInsertionEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 function App() {
   const [theme, setTheme] = useState("light");
   const [units, setUnits] = useState("celsius");
+  const [windSpeedUnit, setWindSpeedUnit] = useState("kph");
 
   //added state for weather data, loading and errors
   const [weatherData, setWeatherData] = useState(null);
@@ -76,7 +76,7 @@ function App() {
   return (
     <div className={"main"}>
       <div className={theme === "light" ? "app light-theme" : "app dark-theme"}>
-        <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} />
+        <Header theme={theme} setTheme={setTheme} units={units} setUnits={setUnits} windSpeedUnit={windSpeedUnit} setWindSpeedUnit={setWindSpeedUnit} />
         <SearchBar theme={theme} onSearch={fetchWeather} />
 
         {loading && <p>Loading Weather...</p>}
@@ -88,6 +88,7 @@ function App() {
             <LargeWeatherCard 
               weatherData={weatherData} 
               units={units} 
+              windSpeedUnit={windSpeedUnit}
               theme={theme} 
             />
 
