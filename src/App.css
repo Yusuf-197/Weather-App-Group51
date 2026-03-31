@@ -56,6 +56,10 @@ h1,h2,h3,p {
   cursor: pointer;
 }
 
+.h2-color {
+  color:#FFFFFF
+}
+
 .card.large {
   min-width: 40%;
   border: 2px solid #00155b;

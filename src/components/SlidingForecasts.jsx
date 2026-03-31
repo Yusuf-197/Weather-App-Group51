@@ -3,7 +3,7 @@ function SlidingForecast({ title, data, units, theme }) {
 
     return (
         <section className={theme === "light" ? "app sliding-forecast light-forecast" : "app sliding-forecast dark-forecast"}>
-            <h2>{title}</h2>
+            <h2 className={"app h2-color"}>{title}</h2>
 
             <div className="card-container">
                 {data.map((item, index) => {
