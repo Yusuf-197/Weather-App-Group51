@@ -1,0 +1,20 @@
+.frame {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* themes */
+.dark{
+  /*background-color: rgba(0, 0, 0, 0.1); feels nicer like this */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.light {
+  background-color: rgba(255, 255, 255, 0.1);
+}
