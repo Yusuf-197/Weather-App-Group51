@@ -3,6 +3,7 @@ import Header from './components/Header';
 import LargeWeatherCard from './components/LargeWeatherCard';
 import SearchBar from './components/SearchBar';
 import SlidingForecast from './components/SlidingForecasts';
+import WeatherWarning from './components/WeatherWarning';
 
 import { useState, useEffect, useCallback } from 'react';
 
@@ -95,12 +96,20 @@ function App() {
         {weatherData && (
           <>
             {/*Current Weather */}  
-            <LargeWeatherCard 
-              weatherData={weatherData} 
-              units={units} 
-              kmMiUnit={kmMiUnit}
-              theme={theme} 
-            />
+            <section className="Sideways">
+
+              <LargeWeatherCard
+                weatherData={weatherData} 
+                units={units} 
+                kmMiUnit={kmMiUnit}
+                theme={theme} 
+              />
+
+              <WeatherWarning theme={theme} weatherData={weatherData}>
+
+              </WeatherWarning>
+
+            </section>
 
             {/* Hourly Forecast */} 
             <SlidingForecast 
