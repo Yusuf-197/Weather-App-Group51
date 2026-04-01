@@ -195,10 +195,16 @@ h1,h2,h3,p {
 }
 
 .Sideways{
-/*    background-color: aqua; */
     display : flex;
     gap : 1rem;
     padding : 0.5rem;
+}
+
+@media (max-width: 1200px) {
+    .Sideways {
+      flex-direction: column;
+      gap: 0.5rem;
+    }   
 }
 
 @media (max-width: 1024px) {
@@ -209,6 +215,11 @@ h1,h2,h3,p {
    .unit-toggle {   
     font-size: 0.7rem;                    
   }
+  
+  .Sideways {
+      flex-direction: column;
+      gap: 0.5rem;
+  }   
 
   .card.large {
     min-width: 30%;
@@ -243,6 +254,11 @@ h1,h2,h3,p {
     font-size: 0.6rem;                    
   }
   
+  .Sideways {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   .card.large {
     min-width: 30%;
   }
