@@ -1,9 +1,10 @@
 body {
   min-height: 100vh; 
   margin: 0; 
-  font-family: Arial; /* Set a default font and backups*/
+  font-family: 'Nunito Sans', 'Roboto', Arial, sans-serif; /* Set a default font and backups*/
   text-align: center;
   font-size: 1rem;
+
 }
 
 h1,h2,h3,p {
@@ -215,7 +216,7 @@ h1,h2,h3,p {
    .unit-toggle {   
     font-size: 0.7rem;                    
   }
-  
+
   .Sideways {
       flex-direction: column;
       gap: 0.5rem;
