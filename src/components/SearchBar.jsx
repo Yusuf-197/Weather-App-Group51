@@ -12,6 +12,7 @@ function SearchBar({ onSearch, theme}) {
     };
 
     return (
+        // Search bar for entering location, on submit calls handleSubmit function
         <form className={theme === "light" ? "search-bar light" : "search-bar dark"} onSubmit={handleSubmit}>
             <input
                 type="text"

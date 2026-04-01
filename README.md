@@ -21,9 +21,9 @@ Finally install any dependencies using `npm install`
 
 ## Get an API Key 
 
-We created our weather application using data fetched from weatherapi.com.
+We created our weather application using data fetched from weatherapi.com
 
-Create an account and generate an api key. 
+Create an account and generate an api key. Use the seven day free trial for more daily forecast data. 
 
 Then copy your API key into a .env file and store it in a variable called REACT_APP_WEATHER_API_KEY.
 
