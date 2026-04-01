@@ -85,6 +85,49 @@
     min-width: 10rem;
 }
 
+@media (max-width: 1024px) {
+   .Main{
+        margin: 0.5rem;
+    }
+
+    .Main h2{
+        font-size : 1.2rem;
+    }
+
+    .Heading h4{
+        font-size: 1rem;
+    }
+
+    .Heading p{
+        font-size: 0.7rem;
+    }
+
+    .Temperature img{
+        width: 30%;
+    }
+
+    .Temperature div h1{
+        font-size: 1.5rem;
+    }
+
+    .Temperature div p {
+        font-size: 0.7rem;
+    }
+
+    .Sideways {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }   
+
+    .Sideways div{
+    text-align: center;
+    font-weight: bolder;
+    }
+
+}
+
 
 @media (max-width: 768px) {
     .Main{
