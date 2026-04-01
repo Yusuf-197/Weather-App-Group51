@@ -61,7 +61,6 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
                 <div className = {styles.Heading}>
                     <h2>{location.name}, {location.country}</h2>
                     <h4>{parseTime(location.localtime)}</h4>
-                    <p>{location.localtime.split(" ")[1]}</p>
                 </div>
                 
                 <div className = {styles.Temperature}>
