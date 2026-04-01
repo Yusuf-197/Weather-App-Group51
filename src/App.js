@@ -13,7 +13,7 @@ function App() {
   const [units, setUnits] = useState("celsius");
   const [kmMiUnit, setKmMiUnit] = useState("km");
 
-  //added state for weather data, loading, errors and upcoming hours
+  //added state for weather data, loading true at the start, errors and upcoming hours
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

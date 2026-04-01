@@ -101,9 +101,6 @@
         font-size: 0.7rem;
     }
 
-    .Temperature img{
-        width: 30%;
-    }
 
     .Temperature div h1{
         font-size: 1.5rem;
@@ -136,10 +133,6 @@
 
     .Heading p{
         font-size: 0.7rem;
-    }
-
-    .Temperature img{
-        width: 30%;
     }
 
     .Temperature div h1{
@@ -178,10 +171,6 @@
 
     .Heading p{
         font-size: 0.6rem;
-    }
-
-    .Temperature img{
-        width: 40%;
     }
 
     .Temperature div h1{

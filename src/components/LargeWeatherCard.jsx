@@ -9,6 +9,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
     const location = weatherData.location;
 
     // numbers and unit depend on unit toggles passed in 
+    // based on units, value and symbol changes
     const temperature = units === "celsius" ? current.temp_c : current.temp_f;
     const feelsLike = units === "celsius" ? current.feelslike_c : current.feelslike_f;
     const unitSymbol = units === "celsius" ? "°C" : "°F";
