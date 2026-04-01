@@ -55,7 +55,7 @@ function WeatherCard({weatherData, units, kmMiUnit, theme}) {
         //- heavy wind warnings
     // maybe integrate google maps API to show the weather at the general location? - leave till later as it'll take effort
     return (
-        <Frame theme={theme}>
+        <Frame theme={theme} fitContent={true}>
             <div className={styles.Main}>
                 <div className = {styles.Heading}>
                     <h2>{location.name}, {location.country}</h2>
