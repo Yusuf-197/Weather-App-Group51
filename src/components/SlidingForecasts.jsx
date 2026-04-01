@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from "react";
 import { parseTime } from "../utils"; 
 import Frame from "./Frame";
 
-function SlidingForecast({ title, data, units, theme }) {
+function SlidingForecast({ title, data, units, theme, onClick, selectedDay}) {
     // scrollref for the conatiner of cards that are scrolling
     const scrollRef = useRef(null);
     // State to track if we can scroll left or right, initially we can scroll right but not left
@@ -21,7 +21,7 @@ function SlidingForecast({ title, data, units, theme }) {
             parseInt(getComputedStyle(container.firstChild).marginLeft) + 
             parseInt(getComputedStyle(container.firstChild).paddingRight) : 0;
             
-            container.scrollBy({left : direction === "left" ? -cardWidth : cardWidth, behaviour: "smooth"});
+            container.scrollBy({left : direction === "left" ? -cardWidth : cardWidth, behavior: "smooth"});
         }
     };
     
@@ -56,7 +56,7 @@ function SlidingForecast({ title, data, units, theme }) {
     if (!data || data.length === 0) return null;
 
     return (
-        <Frame theme={theme} minWidth={"100%"}>
+        <Frame theme={theme}>
             <section className={"app sliding-forecast"}>
                 <h2 className={"app h2-color"}>{title}</h2>
 
@@ -83,7 +83,7 @@ function SlidingForecast({ title, data, units, theme }) {
                                 : item.day.condition.text;
 
                             return (
-                                <div key={index} className={theme === "light" ? "app card light-card" : "app card dark-card"}>
+                                <div key={index} className={`${theme === "light" ? "app card light-card" : "app card dark-card"} ${selectedDay === index ? "selected" : ""}`} onClick={() => onClick && onClick(index)}>
                                     <img src={icon} alt={conditionText} />
                                     <h3>{label}</h3>
                                     <p>{Math.round(temp)}°{units === "celsius" ? "C" : "F"}</p>

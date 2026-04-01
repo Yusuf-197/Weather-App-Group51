@@ -17,8 +17,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [upcomingHours, setUpcomingHours] = useState([]);
-
+  const [selectedDay, setSelectedDay] = useState(0);
   //read API key fron .env
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -62,10 +61,7 @@ function App() {
         const tomorrowHours = data.forecast.forecastday[1].hour.slice(0, 24 - upcomingHours.length);
         // Combine today's upcoming hours with tomorrow's hours to have a full 24 hour forecast
         finalHours = [...upcomingHours, ...tomorrowHours];
-      }
-      setUpcomingHours(finalHours);
-
-            
+      }            
     }
     // If any error occurs during fetch or processing, catch it and set error message and clear weather data 
     catch(err) {
@@ -76,8 +72,21 @@ function App() {
       // Always set loading to false at the end of the fetch process, whether it succeeded or failed
       setLoading(false);
     }
- }, [API_KEY]); // Depends on API_KEY, if it changes the function updates 
+  }, [API_KEY]); // Depends on API_KEY, if it changes the function updates 
+  const getSelectedHours = () => {
+    const dayData = weatherData.forecast.forecastday[selectedDay];
+    if (!dayData) return [];
 
+    if (selectedDay === 0) {
+      const currentTime = new Date(weatherData.location.localtime);
+
+      return dayData.hour.filter(hour => {
+        return new Date(hour.time) >= currentTime;
+      });
+    }
+
+    return dayData.hour;
+  };
   // When loading, this gets users location and fetches weather, or default London
   useEffect(() => {
     // Check if geolocation is available in the browser
@@ -94,7 +103,9 @@ function App() {
     );
   }, [fetchWeather]); // Depends on fetchWeather, runs once on mount and if fetchWeather changes
   
-
+const onClick = (day) => {
+  setSelectedDay(day);
+};
 
   return (
     <div className={"main"}>
@@ -124,7 +135,7 @@ function App() {
             {/* Hourly Forecast */} 
             <SlidingForecast 
               title="Hourly Forecast"
-              data = {upcomingHours}
+              data = {getSelectedHours()}
               units ={units}
               theme = {theme}
             />
@@ -135,8 +146,9 @@ function App() {
               data = {weatherData.forecast.forecastday}
               units = {units}  
               theme = {theme}
+              onClick={onClick}
+              selectedDay={selectedDay}
             />
-
           </>
         )}
       </div>

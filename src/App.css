@@ -95,7 +95,7 @@ h1,h2,h3,p {
 .scroll-container {
   display: flex;          /* side-by-side layout */
   align-items: center;    /* vertically center buttons with cards */
-  gap: 0.5rem; 
+  gap: 0.5rem;
 }
 
 .light-header {
@@ -160,7 +160,7 @@ h1,h2,h3,p {
 }
 .light-card {
   /*background-color: #FFFFFF;*/
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #000000;
 }
 
@@ -169,6 +169,11 @@ h1,h2,h3,p {
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
+  width: 100%;
+}
+
+.selected {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .card {
