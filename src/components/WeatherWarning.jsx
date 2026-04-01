@@ -13,9 +13,9 @@ function WeatherWarning({weatherData, theme}) {
     const windRisk = current.wind_kph >= 40;
     const fogRisk = current.vis_km < 2;
     const rainRisk = current.precip_mm > 0 && !snowRisk;
-    const heatRisk = current.temp_c >= 30;
+    /*const heatRisk = current.temp_c >= 30;
     const coldRisk = current.temp_c <= 0;
-    const sunburnRisk = current.uv >= 7;
+    const sunburnRisk = current.uv >= 7;*/
 
     // did this as repeated if statements looks weird and takes too long
     const riskChecks = [{
@@ -42,7 +42,7 @@ function WeatherWarning({weatherData, theme}) {
         condition: rainRisk,
         id: "Rain",
         suggestions: ["Wear a jacket"]
-    },
+    },/*
     {
         condition: heatRisk,
         id: "Heat",
@@ -57,7 +57,7 @@ function WeatherWarning({weatherData, theme}) {
         condition: sunburnRisk,
         id: "Sunburn",
         suggestions: ["Apply sunscreen"]
-    }];
+    }*/];
     
     riskChecks.forEach(risk => {
     if (risk.condition) {
