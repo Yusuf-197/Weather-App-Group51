@@ -84,38 +84,6 @@ h1,h2,h3,p {
   color:#FFFFFF
 }
 
-.card.large {
-  min-width: 40%;
-  border: 2px solid #00155b;
-  border-radius: 20px;
-  padding: 1rem;
-  margin: 0.5rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  min-width: 15%;
-  border: 1px solid #000000;
-  border-radius: 20px;
-  padding: 1rem;
-  margin: 0.5rem;
-}
-
-.card h2 {
-  margin-bottom: 0.5rem;
-}
-
-.card .additional-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .sliding-forecast {
   scroll-behavior: smooth;
   margin: 1rem;
@@ -127,26 +95,6 @@ h1,h2,h3,p {
   display: flex;          /* side-by-side layout */
   align-items: center;    /* vertically center buttons with cards */
   gap: 0.5rem; 
-}
-
-.sliding-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;  
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.card-container {
-  overflow-x: auto;
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-
-/* Light theme */
-.app.light-theme {
-  color: #000000;
 }
 
 .light-header {
@@ -193,23 +141,6 @@ h1,h2,h3,p {
   box-shadow: 0 0 0 1px #0077b6;
 }
 
-.light-card {
-  background-color: #FFFFFF;
-  border: 1px solid #000000;
-  color: #000000;
-}
-
-.sliding-forecast.light-forecast {
-  background: rgba(255, 255, 255, 0.1);
-  color: #000000;
-
-}
-
-/* Dark theme */
-.app.dark-theme {
-  color: #FFFFFF;
-}
-
 .dark-header {
   background-color: #0B0B0B;
   color: #FFFFFF;
@@ -223,9 +154,37 @@ h1,h2,h3,p {
 }
 
 .dark-card {
-  background-color: #101055;
+  background-color: rgba(255, 255, 255, 0.2);
   color: #DFF0F5;
-  border: 1px solid #0A35B9;
+}
+.light-card {
+  /*background-color: #FFFFFF;*/
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000000;
+}
+
+.card-container {
+  overflow-x: auto;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  min-width: 15%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
 }
 
 .CurrentWeather {
@@ -235,6 +194,12 @@ h1,h2,h3,p {
   gap: 0.5rem;
 }
 
+.Sideways{
+/*    background-color: aqua; */
+    display : flex;
+    gap : 1rem;
+    padding : 0.5rem;
+}
 
 @media (max-width: 1024px) {
   body {
@@ -293,6 +258,11 @@ h1,h2,h3,p {
   }
   
   .search-bar {
+    gap: 0.5rem;
+  }
+
+  .top-section {
+    display: flex;
     gap: 0.5rem;
   }
 }
