@@ -3,7 +3,7 @@ import { useEffect } from "react";
 function Header( { theme, setTheme, units, setUnits, kmMiUnit, setKmMiUnit } ) {
     useEffect(() => {
   document.body.style.background =
-    theme === "light" ? "linear-gradient(to bottom, #48cae4, #005989)" : "linear-gradient(to bottom, #000000, #838383)";
+    theme === "light" ? "linear-gradient(to bottom, #48cae4, #005989)" : "linear-gradient(to bottom, #000000, #332f2f)";
 }, [theme]);
     // toggle buttons for units and theme
     return (

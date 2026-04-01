@@ -117,8 +117,15 @@
 
     .Sideways {
         flex-direction: column;
+        justify-content: center; /* vertical alignment along main axis */
+        align-items: center;
         gap: 0.5rem;
     }   
+
+    .Sideways div{
+    text-align: center;
+    font-weight: bolder;
+    }
 }
 
 @media (max-width: 480px) {
@@ -152,6 +159,13 @@
 
     .Sideways {
         flex-direction: column;
+        justify-content: center; /* vertical alignment along main axis */
+        align-items: center;
         gap: 0.5rem;
+    }
+
+    .Sideways div{
+    text-align: center;
+    font-weight: bolder;
     }
 }

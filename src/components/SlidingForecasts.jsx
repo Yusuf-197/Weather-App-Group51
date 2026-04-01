@@ -46,7 +46,7 @@ function SlidingForecast({ title, data, units, theme }) {
             <h2 className={"app h2-color"}>{title}</h2>
 
             <div className = "scroll-container">
-                {data.length > 3 && (<button onClick={() => scroll("left")} className = "scroll-button" disabled={!canScrollLeft}>◀</button>)}
+                {data.length > 3 && (<button className={theme === "light" ? "unit-toggle light" : "unit-toggle dark"} onClick={() => scroll("left")} disabled={!canScrollLeft}>◀</button>)}
                 <div className="card-container" ref = {scrollRef}>
                     {data.map((item, index) => {
                         const isHourly = item.time !== undefined;
@@ -77,7 +77,7 @@ function SlidingForecast({ title, data, units, theme }) {
                     })}
                 </div>
             
-                {data.length > 3 && (<button onClick={() => scroll("right")} className = "scroll-button" disabled={!canScrollRight}>▶</button>)}
+                {data.length > 3 && (<button className={theme === "light" ? "unit-toggle light" : "unit-toggle dark"} onClick={() => scroll("right")} disabled={!canScrollRight}>▶</button>)}
             </div>
         </section>
     );
