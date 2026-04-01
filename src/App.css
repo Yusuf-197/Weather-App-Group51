@@ -198,7 +198,6 @@ h1,h2,h3,p {
 .Sideways{
     display : flex;
     gap : 1rem;
-    padding : 0.5rem;
 }
 
 @media (max-width: 1200px) {
