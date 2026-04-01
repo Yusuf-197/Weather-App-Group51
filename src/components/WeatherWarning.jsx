@@ -58,21 +58,22 @@ function WeatherWarning({weatherData, theme}) {
         id: "Sunburn",
         suggestions: ["Apply sunscreen"]
     }];
-    /*
+    
     riskChecks.forEach(risk => {
     if (risk.condition) {
         risks.push(risk.id);
         risk.suggestions.forEach(s => suggestionsSet.add(s));
     }
     });
-    */
+    
+    /* debug all weather conditions
     riskChecks.forEach(risk => {
     if (true) {
         risks.push(risk.id);
         risk.suggestions.forEach(s => suggestionsSet.add(s));
     }
     });
-
+    */
     const suggestions = Array.from(suggestionsSet);
 
     return (
