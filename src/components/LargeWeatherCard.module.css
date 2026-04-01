@@ -117,7 +117,7 @@
 
     .Sideways {
         flex-direction: column;
-        justify-content: center; /* vertical alignment along main axis */
+        justify-content: center;
         align-items: center;
         gap: 0.5rem;
     }   
