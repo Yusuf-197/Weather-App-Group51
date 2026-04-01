@@ -4,12 +4,10 @@ import style from "./LargeWeatherCard.module.css";
 function WeatherWarning({weatherData, theme}) {
     //TODO: make it warn about soon to be bad weather for the current day
     
-    const freezingTemp = 2
     const risks = [];
-    const suggestions = [];
+    const suggestionsSet = new Set();
     const current = weatherData.current;
-
-    // Check for various weather risks based on current conditions and add to risks and suggestions arrays accordingly
+    const freezingTemp = 2;
     const snowRisk = current.condition.text.toLowerCase().includes("snow")
     const iceRisk = current.temp_c <= freezingTemp && current.temp_c >= -5 && (current.precip_mm > 0 || snowRisk);
     const windRisk = current.wind_kph >= 40;
@@ -19,42 +17,63 @@ function WeatherWarning({weatherData, theme}) {
     const coldRisk = current.temp_c <= 0;
     const sunburnRisk = current.uv >= 7;
 
-    //Check each risk and add to risks and suggestions array if true
-    if (snowRisk) {
-        risks.push("Snow");
-        suggestions.push("Drive carefully and wear a coat");
+    // did this as repeated if statements looks weird and takes too long
+    const riskChecks = [{
+        condition: snowRisk,
+        id: "Snow",
+        suggestions: ["Drive carefully", "Wear a coat"]
+    },
+    {
+        condition: iceRisk,
+        id: "Ice",
+        suggestions: ["Drive carefully", "Walk carefully", "Dress warmly"]
+    },
+    {
+        condition: windRisk,
+        id: "High Winds",
+        suggestions: ["Drive carefully", "Dress warmly"]
+    },
+    {
+        condition: fogRisk,
+        id: "Fog",
+        suggestions: ["Drive carefully", "Use fog lights"]
+    },
+    {
+        condition: rainRisk,
+        id: "Rain",
+        suggestions: ["Wear a jacket"]
+    },
+    {
+        condition: heatRisk,
+        id: "Heat",
+        suggestions: ["Stay hydrated"]
+    },
+    {
+        condition: coldRisk,
+        id: "Cold",
+        suggestions: ["Dress warmly"]
+    },
+    {
+        condition: sunburnRisk,
+        id: "Sunburn",
+        suggestions: ["Apply sunscreen"]
+    }];
+    /*
+    riskChecks.forEach(risk => {
+    if (risk.condition) {
+        risks.push(risk.id);
+        risk.suggestions.forEach(s => suggestionsSet.add(s));
     }
-    if (iceRisk) {
-        risks.push("Ice");
-        suggestions.push("Walk and Drive carefully and dress warmly");
+    });
+    */
+    riskChecks.forEach(risk => {
+    if (true) {
+        risks.push(risk.id);
+        risk.suggestions.forEach(s => suggestionsSet.add(s));
     }
-    if (windRisk) {
-        risks.push("High Winds");
-        suggestions.push("Drive carefully and dress warmly");
-    }
-    if (fogRisk) {
-        risks.push("Fog");
-        suggestions.push("Drive carefully and use fog lights");
-    }
-    if (rainRisk) {
-        risks.push("Rain");
-        suggestions.push("Wear a jacket");
-    }
+    });
 
-    if (heatRisk) {
-        risks.push("Heat");
-        suggestions.push("Stay hydrated");
-    };
-    if (coldRisk) {
-        risks.push("Cold");
-        suggestions.push("Dress warmly");
-    };
-    if (sunburnRisk) {
-        risks.push("Sunburn");
-        suggestions.push("Apply sunscreen");
-    }
-
-
+    const suggestions = Array.from(suggestionsSet);
 
     return (
         <Frame theme={theme} >
