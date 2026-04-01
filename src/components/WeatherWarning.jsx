@@ -25,7 +25,8 @@ function WeatherWarning({weatherData, theme}) {
 
     return (
         <Frame theme={theme} >
-            <h1> Road Warnings</h1>
+            <div className={style.Main}>
+                <h1> Road Warnings</h1>
                 {
                     risks.length === 0 ? <p>Clear Road Conditions</p> : (
                         <div className={style.Warning}>
@@ -34,6 +35,7 @@ function WeatherWarning({weatherData, theme}) {
                     )
 
                 }
+            </div>
         </Frame>
     );
 }
