@@ -1,7 +1,7 @@
 import styles from "./Frame.module.css";
 
-function Frame({ theme, children }) {
-// might add minSize and maxSize later, if not then remove this
+// did this so you dont have to do className=... every time you want to use the style
+function Frame({theme, children }) {
     return (
         <div className={`${styles.frame} ${styles[theme]}`}>
             {children}
